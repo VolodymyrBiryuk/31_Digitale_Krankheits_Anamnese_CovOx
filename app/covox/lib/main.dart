@@ -2,6 +2,7 @@ import 'package:covox/screens/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:covox/screens/home_page.dart';
 import 'package:covox/screens/basic_questions_page.dart';
+import 'package:covox/screens/question_page_basic.dart';
 
 void main() => runApp(MyApp());
 
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
 //         // is not restarted.
         primarySwatch: Colors.blue,
           ),
-      home: HomePage(title: 'CoVox',),
+      home: QuestionsPageBasic(),
     );
   }
 }
