@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'basic_questions_page.dart';
+import 'package:covox/widgets/drop_down_widget.dart';
+// import 'package:flutter/services.dart';
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class HomePage extends StatefulWidget {
+  HomePage({Key key, this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -15,10 +18,10 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomePageState extends State<HomePage> {
   int _counter = 0;
   void _incrementCounter() {
     setState(() {
@@ -65,6 +68,36 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            DropDown(
+              fbKey: new GlobalKey(),
+              attribute: 'geschlecht',
+              labelText: 'Geschlecht',
+              itemsList: ['M', 'W', 'D'],
+            ),
+            DropDown(
+              fbKey: new GlobalKey(),
+              attribute: 'alter',
+              labelText: 'Alter',
+              itemsList: ['M', 'W', 'D'],
+            ),
+            DropDown(
+              fbKey: new GlobalKey(),
+              attribute: 'größe',
+              labelText: 'Größe',
+              itemsList: ['M', 'W', 'D'],
+            ),
+            DropDown(
+              fbKey: new GlobalKey(),
+              attribute: 'gewicht',
+              labelText: 'Gewicht',
+              itemsList: ['M', 'W', 'D'],
+            ),
+            DropDown(
+              fbKey: new GlobalKey(),
+              attribute: 'raucher',
+              labelText: 'raucher',
+              itemsList: ['oft', 'gelegentlich', 'nie'],
+            ),
             Text(
               'Bla bla bla:',
             ),
