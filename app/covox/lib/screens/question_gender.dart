@@ -1,3 +1,4 @@
+import 'package:covox/util/enter_exit_route.dart';
 import 'package:flutter/material.dart';
 import 'package:covox/widgets/title_content_button_widget.dart';
 import 'package:covox/widgets/radio_button_widget.dart';
@@ -52,8 +53,9 @@ class _QuestionGenderState extends State<QuestionGender> {
   }
 
   void next() {
-    Navigator.of(context).push(MaterialPageRoute(
+    /* Navigator.of(context).push(MaterialPageRoute(
       builder: (BuildContext context) => QuestionBioGender(),
-    ));
+    )); */
+    Navigator.push(context, EnterExitRoute(exitPage: QuestionGender(), enterPage: QuestionBioGender()));
   }
 }

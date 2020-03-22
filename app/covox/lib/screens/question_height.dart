@@ -1,4 +1,5 @@
 import 'package:covox/screens/question_weight.dart';
+import 'package:covox/util/enter_exit_route.dart';
 import 'package:flutter/material.dart';
 import 'package:covox/widgets/title_content_button_widget.dart';
 import 'package:covox/widgets/navigation_bar.dart';
@@ -32,8 +33,9 @@ class _QuestionHeightState extends State<QuestionHeight> {
         ));
   }
   void next() {
-    Navigator.of(context).push(MaterialPageRoute(
+    /* Navigator.of(context).push(MaterialPageRoute(
       builder: (BuildContext context) => QuestionWeight(),
-    ));
+    )); */
+    Navigator.push(context, EnterExitRoute(exitPage: QuestionHeight(), enterPage: QuestionWeight()));
   }
 }

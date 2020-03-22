@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:covox/screens/greeting_page.dart';
 import 'package:covox/screens/question_gender.dart';
 import 'package:flutter/material.dart';
 import 'package:covox/widgets/title_content_button_widget.dart';
@@ -12,6 +15,16 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    initApp().then((initStatus) {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => GreetingPage()));
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,9 +41,8 @@ class _SplashScreenState extends State<SplashScreen> {
         ));
   }
 
-  void losGehts() {
-    Navigator.of(context).push(MaterialPageRoute(
-      builder: (BuildContext context) => QuestionGender(),
-    ));
+  Future<void> initApp() async {
+    sleep(const Duration(seconds:3));
+    return Future;
   }
 }
