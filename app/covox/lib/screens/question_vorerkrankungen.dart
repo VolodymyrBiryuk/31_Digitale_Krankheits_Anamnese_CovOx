@@ -15,8 +15,7 @@ class _QuestionVorerkrankungenState extends State<QuestionVorerkrankungen> {
   List<RadioButtonOptions> answers = [
     RadioButtonOptions(
       index: 1,
-      name: "Lunge"
-            "(z.B. COPD, Asthma, etc.)",
+      name: "Lunge",
     ),
     RadioButtonOptions(
       index: 2,
@@ -40,7 +39,7 @@ class _QuestionVorerkrankungenState extends State<QuestionVorerkrankungen> {
         body: Center(
           child: TitleContentButtonWidget(
             fbKey: new GlobalKey(),
-            title: 'Welches biologische Geschlecht hast du?',
+            title: 'Welches Vorerkrankungen hast du?',
             mainContent: RadioButtonGroup(
                 optionsList: answers,
                 selectedValue: selectedValue,
