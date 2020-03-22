@@ -3,23 +3,31 @@ import 'package:covox/widgets/title_content_button_widget.dart';
 import 'package:covox/widgets/radio_button_widget.dart';
 import 'package:covox/widgets/navigation_bar.dart';
 
-class QuestionSmoking extends StatefulWidget {
-  QuestionSmoking({Key key}) : super(key: key);
+class QuestionGender extends StatefulWidget {
+  QuestionGender({Key key}) : super(key: key);
 
   @override
-  _QuestionSmokingState createState() => _QuestionSmokingState();
+  _QuestionBioGenderState createState() => _QuestionBioGenderState();
 }
 
-class _QuestionSmokingState extends State<QuestionSmoking> {
+class _QuestionBioGenderState extends State<QuestionGender> {
   int selectedValue;
   List<RadioButtonOptions> answers = [
     RadioButtonOptions(
       index: 1,
-      name: "Ja",
+      name: "Lunge",
     ),
     RadioButtonOptions(
       index: 2,
-      name: "Nein",
+      name: "Herz-Kreislauf",
+    ),
+    RadioButtonOptions(
+      index: 3,
+      name: "Niere",
+    ),
+    RadioButtonOptions(
+      index: 4,
+      name: "Keine Davon",
     ),
   ];
   @override
@@ -31,7 +39,7 @@ class _QuestionSmokingState extends State<QuestionSmoking> {
         body: Center(
           child: TitleContentButtonWidget(
             fbKey: new GlobalKey(),
-            title: 'Rauchst du täglich?',
+            title: 'Welches biologische Geschlecht hast du?',
             mainContent: RadioButtonGroup(
                 optionsList: answers,
                 selectedValue: selectedValue,
@@ -45,5 +53,3 @@ class _QuestionSmokingState extends State<QuestionSmoking> {
         ));
   }
 }
-
-

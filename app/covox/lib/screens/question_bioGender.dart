@@ -1,49 +1,58 @@
+import 'package:covox/screens/question_age.dart';
 import 'package:flutter/material.dart';
+
 import 'package:covox/widgets/title_content_button_widget.dart';
+
 import 'package:covox/widgets/radio_button_widget.dart';
+
 import 'package:covox/widgets/navigation_bar.dart';
 
-class QuestionSmoking extends StatefulWidget {
-  QuestionSmoking({Key key}) : super(key: key);
+class QuestionBioGender extends StatefulWidget {
+  QuestionBioGender({Key key}) : super(key: key);
 
   @override
-  _QuestionSmokingState createState() => _QuestionSmokingState();
+  _QuestionBioGender createState() => _QuestionBioGender();
 }
 
-class _QuestionSmokingState extends State<QuestionSmoking> {
+class _QuestionBioGender extends State<QuestionBioGender> {
   int selectedValue;
   List<RadioButtonOptions> answers = [
     RadioButtonOptions(
       index: 1,
-      name: "Ja",
+      name: "Weiblich",
     ),
     RadioButtonOptions(
       index: 2,
-      name: "Nein",
+      name: "Männlich",
     ),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar:NavigationBarWidget(
+        appBar: NavigationBarWidget(
           context: context,
         ),
         body: Center(
           child: TitleContentButtonWidget(
             fbKey: new GlobalKey(),
-            title: 'Rauchst du täglich?',
+            title: 'Welches biologische Geschlecht hast du?',
             mainContent: RadioButtonGroup(
                 optionsList: answers,
                 selectedValue: selectedValue,
                 onChanged: (int selectionValue) {
                   setState(() {
                     selectedValue = selectionValue;
-                });
-              }),
+                  });
+                }),
             buttonText: 'WEITER',
+            buttonAction: next,
           ),
         ));
   }
+
+  void next() {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (BuildContext context) => QuestionAge(),
+    ));
+  }
 }
-
-

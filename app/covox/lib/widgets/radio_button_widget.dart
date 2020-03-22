@@ -1,24 +1,29 @@
 import 'package:flutter/material.dart';
 
-
-class DualRadioButtonCard extends StatefulWidget {
+class RadioButtonOptions {
+  String name;
+  int index;
+  RadioButtonOptions({this.name, this.index});
+}
+class RadioButtonGroup extends StatefulWidget {
   final int selectedValue;
-  final String option1;
-  final String option2;
+  final Function onChanged;
+  final List<RadioButtonOptions> optionsList;
 
-  DualRadioButtonCard(
+  RadioButtonGroup(
       {Key key,
-      this.option1,
-      this.option2,
-      this.selectedValue, Null Function(int selectionValue) onChanged})
+      this.onChanged,
+      this.selectedValue,
+      this.optionsList})
       : super(key: key);
 
   @override
-  DualRadioOptionCardState createState() => DualRadioOptionCardState();
+  RadioButtonGroupState createState() => RadioButtonGroupState();
 }
 
-class DualRadioOptionCardState extends State<DualRadioButtonCard> {
+class RadioButtonGroupState extends State<RadioButtonGroup> {
   int selectedValue;
+  String radioItem;
 
   @override
   void initState() {
@@ -31,29 +36,25 @@ class DualRadioOptionCardState extends State<DualRadioButtonCard> {
   @override
   Widget build(BuildContext context) {
 
-    return Card(
-      elevation: 3.0,
-      child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisSize: MainAxisSize.min,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Column(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-              Radio(
-                value: 0,
-                activeColor: Colors.green,
-                groupValue: widget.selectedValue,
-                onChanged: null,
-              ),
-              Text(widget.option1),
-              Radio(
-                value: 1,
-                activeColor: Colors.green,
-                groupValue: widget.selectedValue,
-                onChanged: null,
-              ),
-              Text(widget.option2),
-            ])
-          ]),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: 
+                widget.optionsList.map((data) => RadioListTile(
+                  title: Text("${data.name}", style: TextStyle(fontSize: 25)),
+                  groupValue: selectedValue,
+                  value: data.index,
+                  onChanged: (val) {
+                    setState(() {
+                      radioItem = data.name ;
+                      selectedValue = data.index;
+                    });
+                  },
+                )).toList(),
+                ),          
+        ],
     );
   }
 }

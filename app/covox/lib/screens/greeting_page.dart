@@ -1,3 +1,4 @@
+import 'package:covox/screens/question_gender.dart';
 import 'package:flutter/material.dart';
 import 'package:covox/widgets/drop_down_widget.dart';
 import 'package:covox/widgets/title_content_button_widget.dart';
@@ -99,7 +100,7 @@ class _GreetingPageState extends State<GreetingPage> {
 
   void losGehts() {
     Navigator.of(context).push(MaterialPageRoute(
-      builder: (BuildContext context) => QuestionAge(),
+      builder: (BuildContext context) => QuestionGender(),
     ));
   }
 }

@@ -12,6 +12,16 @@ class QuestionDiabetes extends StatefulWidget {
 
 class _QuestionDiabetes extends State<QuestionDiabetes> {
   int selectedValue;
+  List<RadioButtonOptions> answers = [
+    RadioButtonOptions(
+      index: 1,
+      name: "Ja",
+    ),
+    RadioButtonOptions(
+      index: 2,
+      name: "Nein",
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,9 +32,8 @@ class _QuestionDiabetes extends State<QuestionDiabetes> {
           child: TitleContentButtonWidget(
             fbKey: new GlobalKey(),
             title: 'Hast du Diabetes?',
-            mainContent: DualRadioButtonCard(
-                option1: 'Ja',
-                option2: 'Nein',
+            mainContent: RadioButtonGroup(
+                optionsList: answers,
                 selectedValue: selectedValue,
                 onChanged: (int selectionValue) {
                   setState(() {
@@ -37,79 +46,3 @@ class _QuestionDiabetes extends State<QuestionDiabetes> {
   }
 }
 
-class RadioGroup extends StatefulWidget {
-  @override
-  RadioGroupWidget createState() => RadioGroupWidget();
-}
-
-class RadioGroupWidget extends State {
-  
-  // Default Radio Button Selected Item When App Starts.
-  String radioButtonItem = 'ONE';
-
-  // Group Value for Radio Button.
-  int id = 1;
-
-  Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Padding(
-        padding: EdgeInsets.all(14.0),
-        child: Text('Selected Radio Item = ' + '$radioButtonItem',
-            style: TextStyle(fontSize: 21))
-          ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Radio(
-              value: 1,
-              groupValue: id,
-              onChanged: (val) {
-                setState(() {
-                  radioButtonItem = 'ONE';
-                  id = 1;
-                });
-              },
-            ),
-            Text(
-              'ONE',
-              style: new TextStyle(fontSize: 17.0),
-            ),
-
-            Radio(
-              value: 2,
-              groupValue: id,
-              onChanged: (val) {
-                setState(() {
-                  radioButtonItem = 'TWO';
-                  id = 2;
-                });
-              },
-            ),
-            Text(
-              'TWO',
-              style: new TextStyle(
-                fontSize: 17.0,
-              ),
-            ),
-            
-            Radio(
-              value: 3,
-              groupValue: id,
-              onChanged: (val) {
-                setState(() {
-                  radioButtonItem = 'THREE';
-                  id = 3;
-                });
-              },
-            ),
-            Text(
-              'THREE',
-              style: new TextStyle(fontSize: 17.0),
-            ),
-          ],
-        ),
-      ],
-    );
-  }
-}

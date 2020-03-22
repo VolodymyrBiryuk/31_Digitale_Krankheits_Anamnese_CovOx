@@ -2,48 +2,58 @@ import 'package:flutter/material.dart';
 import 'package:covox/widgets/title_content_button_widget.dart';
 import 'package:covox/widgets/radio_button_widget.dart';
 import 'package:covox/widgets/navigation_bar.dart';
+import 'package:covox/screens/question_bioGender.dart';
 
-class QuestionSmoking extends StatefulWidget {
-  QuestionSmoking({Key key}) : super(key: key);
+class QuestionGender extends StatefulWidget {
+  QuestionGender({Key key}) : super(key: key);
 
   @override
-  _QuestionSmokingState createState() => _QuestionSmokingState();
+  _QuestionBioGenderState createState() => _QuestionBioGenderState();
 }
 
-class _QuestionSmokingState extends State<QuestionSmoking> {
+class _QuestionBioGenderState extends State<QuestionGender> {
   int selectedValue;
   List<RadioButtonOptions> answers = [
     RadioButtonOptions(
       index: 1,
-      name: "Ja",
+      name: "Weiblich",
     ),
     RadioButtonOptions(
       index: 2,
-      name: "Nein",
+      name: "Männlich",
+    ),
+    RadioButtonOptions(
+      index: 3,
+      name: "Divers",
     ),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar:NavigationBarWidget(
+        appBar: NavigationBarWidget(
           context: context,
         ),
         body: Center(
           child: TitleContentButtonWidget(
             fbKey: new GlobalKey(),
-            title: 'Rauchst du täglich?',
+            title: 'Welches Geschlecht hast du?',
             mainContent: RadioButtonGroup(
                 optionsList: answers,
                 selectedValue: selectedValue,
                 onChanged: (int selectionValue) {
                   setState(() {
                     selectedValue = selectionValue;
-                });
-              }),
+                  });
+                }),
             buttonText: 'WEITER',
+            buttonAction: next,
           ),
         ));
   }
+
+  void next() {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (BuildContext context) => QuestionBioGender(),
+    ));
+  }
 }
-
-
