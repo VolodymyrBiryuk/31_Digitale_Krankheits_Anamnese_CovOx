@@ -1,5 +1,4 @@
 import 'package:covox/screens/greeting_page.dart';
-import 'package:covox/screens/splash.dart';
 import 'package:covox/screens/splash_screen.dart';
 import 'package:covox/screens/take_a_seat_page.dart';
 import 'package:flutter/material.dart';
@@ -34,8 +33,8 @@ class MyApp extends StatelessWidget {
         ),
         primarySwatch: Colors.cyan,
       ),
-      // home: SplashScreen(),
-      home: TakeASeatPage(),
+      home: SplashScreen(),
+      // home: TakeASeatPage(),
     );
   }
 }

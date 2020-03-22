@@ -1,17 +1,19 @@
+import 'package:covox/screens/measur_evaluation.dart';
+import 'package:covox/screens/measur_heartFreq_0.dart';
 import 'package:flutter/material.dart';
 import 'package:covox/widgets/title_content_button_widget.dart';
 import 'package:covox/widgets/navigation_bar.dart';
+import 'package:covox/util/enter_exit_route.dart';
 
-import 'measur_temperature_2_page.dart';
 /// The Greeting Page, where the user is informaed about the purpose of the App.
-class MeasureTemperaturePage1 extends StatefulWidget {
-  MeasureTemperaturePage1({Key key}) : super(key: key);
+class MeasureHeartFreq1 extends StatefulWidget {
+  MeasureHeartFreq1({Key key}) : super(key: key);
 
   @override
-  _MeasureTemperaturePage1State createState() => _MeasureTemperaturePage1State();
+  _MeasureHeartFreq1State createState() => _MeasureHeartFreq1State();
 }
 
-class _MeasureTemperaturePage1State extends State<MeasureTemperaturePage1> {
+class _MeasureHeartFreq1State extends State<MeasureHeartFreq1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +23,7 @@ class _MeasureTemperaturePage1State extends State<MeasureTemperaturePage1> {
         ),
         body: TitleContentButtonWidget(
           fbKey: new GlobalKey(),
-          title: 'Nimm Platz',
+          title: '5. Herzfrequenz',
           // mainContent: MarkdownBody(data: _text_md, ),
           mainContent: Row(
             children: <Widget>[
@@ -29,7 +31,7 @@ class _MeasureTemperaturePage1State extends State<MeasureTemperaturePage1> {
                 flex: 9,
                 child: Column(
                   children: <Widget>[
-                    Image.asset('assets/images/1_2_Temperatur_Figur_mit_Infrarot.png'),
+                    Image.asset('assets/images/1_11_Herzfrequenz_Hand.png'),
                     SizedBox(height: 50),
                     RichText(
                       textAlign: TextAlign.center,
@@ -40,27 +42,7 @@ class _MeasureTemperaturePage1State extends State<MeasureTemperaturePage1> {
                             .copyWith(fontSize: 20),
                         children: <TextSpan>[
                           TextSpan(
-                            text: 'Drücke auf Start. Halte\n',
-                            style: TextStyle(
-                                color: Theme.of(context).primaryColor),
-                          ),
-                          TextSpan(
-                            text: 'dir die Rückseite vom\n',
-                            style: TextStyle(
-                                color: Theme.of(context).primaryColor),
-                          ),
-                          TextSpan(
-                            text: 'Handy mit dem roten\n',
-                            style: TextStyle(
-                                color: Theme.of(context).primaryColor),
-                          ),
-                          TextSpan(
-                            text: 'Licht auf die Stirn. Warte\n',
-                            style: TextStyle(
-                                color: Theme.of(context).primaryColor),
-                          ),
-                          TextSpan(
-                            text: 'bis der Ton erklingt.\n',
+                            text: 'Gleich ist es geschafft...!\n',
                             style: TextStyle(
                                 color: Theme.of(context).primaryColor),
                           ),
@@ -77,31 +59,31 @@ class _MeasureTemperaturePage1State extends State<MeasureTemperaturePage1> {
                       Icon(
                         Icons.check_circle,
                         size: 30,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                      SizedBox(height: 20),
+                      Icon(
+                        Icons.check_circle,
+                        size: 30,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                      SizedBox(height: 20),
+                      Icon(
+                        Icons.check_circle,
+                        size: 30,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                      SizedBox(height: 20),
+                      Icon(
+                        Icons.check_circle,
+                        size: 30,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                      SizedBox(height: 20),
+                      Icon(
+                        Icons.check_circle,
+                        size: 30,
                         color: Theme.of(context).primaryColorLight,
-                      ),
-                      SizedBox(height: 20),
-                      Icon(
-                        Icons.radio_button_unchecked,
-                        size: 30,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                      SizedBox(height: 20),
-                      Icon(
-                        Icons.radio_button_unchecked,
-                        size: 30,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                      SizedBox(height: 20),
-                      Icon(
-                        Icons.radio_button_unchecked,
-                        size: 30,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                      SizedBox(height: 20),
-                      Icon(
-                        Icons.radio_button_unchecked,
-                        size: 30,
-                        color: Theme.of(context).primaryColor,
                       ),
                     ],
                   ))
@@ -111,10 +93,7 @@ class _MeasureTemperaturePage1State extends State<MeasureTemperaturePage1> {
           buttonAction: losGehts,
         ));
   }
-
   void losGehts() {
-    Navigator.of(context).push(MaterialPageRoute(
-      builder: (BuildContext context) => MeasureTemperaturePage2(),
-    ));
+    Navigator.push(context, EnterExitRoute(exitPage: MeasureHeartFreq0(), enterPage: MeasureEvaluation()));
   }
 }

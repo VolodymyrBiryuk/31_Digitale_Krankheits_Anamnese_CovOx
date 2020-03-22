@@ -1,3 +1,5 @@
+import 'package:covox/screens/question_medDoc.dart';
+import 'package:covox/util/enter_exit_route.dart';
 import 'package:flutter/material.dart';
 import 'package:covox/widgets/title_content_button_widget.dart';
 import 'package:covox/widgets/radio_button_widget.dart';
@@ -7,7 +9,8 @@ class QuestionVorerkrankungen extends StatefulWidget {
   QuestionVorerkrankungen({Key key}) : super(key: key);
 
   @override
-  _QuestionVorerkrankungenState createState() => _QuestionVorerkrankungenState();
+  _QuestionVorerkrankungenState createState() =>
+      _QuestionVorerkrankungenState();
 }
 
 class _QuestionVorerkrankungenState extends State<QuestionVorerkrankungen> {
@@ -33,7 +36,7 @@ class _QuestionVorerkrankungenState extends State<QuestionVorerkrankungen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar:NavigationBarWidget(
+        appBar: NavigationBarWidget(
           context: context,
         ),
         body: Center(
@@ -46,10 +49,21 @@ class _QuestionVorerkrankungenState extends State<QuestionVorerkrankungen> {
                 onChanged: (int selectionValue) {
                   setState(() {
                     selectedValue = selectionValue;
-                });
-              }),
+                  });
+                }),
             buttonText: 'WEITER',
+            buttonAction: next,
           ),
         ));
+  }
+
+  void next() {
+    /* Navigator.of(context).push(MaterialPageRoute(
+      builder: (BuildContext context) => QuestionDiabetes(),
+    )); */
+    Navigator.push(
+        context,
+        EnterExitRoute(
+            exitPage: QuestionVorerkrankungen(), enterPage: QuestionMedDoc()));
   }
 }

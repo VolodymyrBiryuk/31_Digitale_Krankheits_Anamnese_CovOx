@@ -1,4 +1,5 @@
 import 'package:covox/screens/question_age.dart';
+import 'package:covox/util/enter_exit_route.dart';
 import 'package:flutter/material.dart';
 
 import 'package:covox/widgets/title_content_button_widget.dart';
@@ -51,8 +52,9 @@ class _QuestionBioGender extends State<QuestionBioGender> {
   }
 
   void next() {
-    Navigator.of(context).push(MaterialPageRoute(
+    /* Navigator.of(context).push(MaterialPageRoute(
       builder: (BuildContext context) => QuestionAge(),
-    ));
+    )); */
+    Navigator.push(context, EnterExitRoute(exitPage: QuestionBioGender(), enterPage: QuestionAge()));
   }
 }

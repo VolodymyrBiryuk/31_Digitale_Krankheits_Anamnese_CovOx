@@ -1,4 +1,5 @@
 import 'package:covox/screens/question_diabetes.dart';
+import 'package:covox/util/enter_exit_route.dart';
 import 'package:flutter/material.dart';
 import 'package:covox/widgets/title_content_button_widget.dart';
 import 'package:covox/widgets/radio_button_widget.dart';
@@ -47,9 +48,10 @@ class _QuestionSmokingState extends State<QuestionSmoking> {
         ));
   }
   void next() {
-    Navigator.of(context).push(MaterialPageRoute(
+    /* Navigator.of(context).push(MaterialPageRoute(
       builder: (BuildContext context) => QuestionDiabetes(),
-    ));
+    )); */
+    Navigator.push(context, EnterExitRoute(exitPage: QuestionSmoking(), enterPage: QuestionDiabetes()));
   }
 }
 

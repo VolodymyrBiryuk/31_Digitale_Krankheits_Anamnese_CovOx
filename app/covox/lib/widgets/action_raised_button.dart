@@ -17,7 +17,7 @@ class ActionRaisedButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 60.0,
-      width: 250.0,
+      width: 200.0,
       child: RaisedButton(
           color: Theme.of(context).primaryColor,
           textColor: Theme.of(context).accentColor,

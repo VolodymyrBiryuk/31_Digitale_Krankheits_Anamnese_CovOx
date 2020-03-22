@@ -1,17 +1,18 @@
+import 'package:covox/screens/measur_heartFreq_1.dart';
 import 'package:flutter/material.dart';
 import 'package:covox/widgets/title_content_button_widget.dart';
 import 'package:covox/widgets/navigation_bar.dart';
+import 'package:covox/util/enter_exit_route.dart';
 
-import 'measur_temperature_2_page.dart';
 /// The Greeting Page, where the user is informaed about the purpose of the App.
-class MeasureTemperaturePage1 extends StatefulWidget {
-  MeasureTemperaturePage1({Key key}) : super(key: key);
+class MeasureHeartFreq0 extends StatefulWidget {
+  MeasureHeartFreq0({Key key}) : super(key: key);
 
   @override
-  _MeasureTemperaturePage1State createState() => _MeasureTemperaturePage1State();
+  _MeasureHeartFreq0State createState() => _MeasureHeartFreq0State();
 }
 
-class _MeasureTemperaturePage1State extends State<MeasureTemperaturePage1> {
+class _MeasureHeartFreq0State extends State<MeasureHeartFreq0> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +22,7 @@ class _MeasureTemperaturePage1State extends State<MeasureTemperaturePage1> {
         ),
         body: TitleContentButtonWidget(
           fbKey: new GlobalKey(),
-          title: 'Nimm Platz',
+          title: '5. Herzfrequenz',
           // mainContent: MarkdownBody(data: _text_md, ),
           mainContent: Row(
             children: <Widget>[
@@ -29,7 +30,7 @@ class _MeasureTemperaturePage1State extends State<MeasureTemperaturePage1> {
                 flex: 9,
                 child: Column(
                   children: <Widget>[
-                    Image.asset('assets/images/1_2_Temperatur_Figur_mit_Infrarot.png'),
+                    Image.asset('assets/images/1_11_Herzfrequenz_Hand.png'),
                     SizedBox(height: 50),
                     RichText(
                       textAlign: TextAlign.center,
@@ -40,27 +41,32 @@ class _MeasureTemperaturePage1State extends State<MeasureTemperaturePage1> {
                             .copyWith(fontSize: 20),
                         children: <TextSpan>[
                           TextSpan(
-                            text: 'Drücke auf Start. Halte\n',
+                            text: 'Lege dein Handy mit der\n',
                             style: TextStyle(
                                 color: Theme.of(context).primaryColor),
                           ),
                           TextSpan(
-                            text: 'dir die Rückseite vom\n',
+                            text: 'der Bildschirmseite nach oben\n',
                             style: TextStyle(
                                 color: Theme.of(context).primaryColor),
                           ),
                           TextSpan(
-                            text: 'Handy mit dem roten\n',
+                            text: 'hin. Lege deinen Zeigefinger auf\n',
                             style: TextStyle(
                                 color: Theme.of(context).primaryColor),
                           ),
                           TextSpan(
-                            text: 'Licht auf die Stirn. Warte\n',
+                            text: 'den Fingerabdruck-Sensor\n',
                             style: TextStyle(
                                 color: Theme.of(context).primaryColor),
                           ),
                           TextSpan(
-                            text: 'bis der Ton erklingt.\n',
+                            text: 'Drücke mit der anderen Hand\n',
+                            style: TextStyle(
+                                color: Theme.of(context).primaryColor),
+                          ),
+                          TextSpan(
+                            text: 'Start\n',
                             style: TextStyle(
                                 color: Theme.of(context).primaryColor),
                           ),
@@ -77,31 +83,31 @@ class _MeasureTemperaturePage1State extends State<MeasureTemperaturePage1> {
                       Icon(
                         Icons.check_circle,
                         size: 30,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                      SizedBox(height: 20),
+                      Icon(
+                        Icons.check_circle,
+                        size: 30,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                      SizedBox(height: 20),
+                      Icon(
+                        Icons.check_circle,
+                        size: 30,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                      SizedBox(height: 20),
+                      Icon(
+                        Icons.check_circle,
+                        size: 30,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                      SizedBox(height: 20),
+                      Icon(
+                        Icons.check_circle,
+                        size: 30,
                         color: Theme.of(context).primaryColorLight,
-                      ),
-                      SizedBox(height: 20),
-                      Icon(
-                        Icons.radio_button_unchecked,
-                        size: 30,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                      SizedBox(height: 20),
-                      Icon(
-                        Icons.radio_button_unchecked,
-                        size: 30,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                      SizedBox(height: 20),
-                      Icon(
-                        Icons.radio_button_unchecked,
-                        size: 30,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                      SizedBox(height: 20),
-                      Icon(
-                        Icons.radio_button_unchecked,
-                        size: 30,
-                        color: Theme.of(context).primaryColor,
                       ),
                     ],
                   ))
@@ -113,8 +119,6 @@ class _MeasureTemperaturePage1State extends State<MeasureTemperaturePage1> {
   }
 
   void losGehts() {
-    Navigator.of(context).push(MaterialPageRoute(
-      builder: (BuildContext context) => MeasureTemperaturePage2(),
-    ));
+    Navigator.push(context, EnterExitRoute(exitPage: MeasureHeartFreq1(), enterPage: MeasureHeartFreq1()));
   }
 }
