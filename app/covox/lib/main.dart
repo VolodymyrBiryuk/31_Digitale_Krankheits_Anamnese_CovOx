@@ -34,8 +34,8 @@ class MyApp extends StatelessWidget {
         ),
         primarySwatch: Colors.cyan,
       ),
-      // home: SplashScreen(),
-      home: TakeASeatPage(),
+      home: SplashScreen(),
+      // home: TakeASeatPage(),
     );
   }
 }
