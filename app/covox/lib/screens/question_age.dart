@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:covox/widgets/title_content_button_widget.dart';
+import 'package:covox/widgets/radio_button_widget.dart';
 
 class QuestionAge extends StatefulWidget {
   QuestionAge({Key key}) : super(key: key);
@@ -10,6 +11,32 @@ class QuestionAge extends StatefulWidget {
 
 class _QuestionAgeState extends State<QuestionAge> {
   int selectedValue;
+    List<RadioButtonOptions> answers = [
+    RadioButtonOptions(
+      index: 1,
+      name: "unter 40 Jahre",
+    ),
+    RadioButtonOptions(
+      index: 2,
+      name: "41 - 50 Jahre",
+    ),
+    RadioButtonOptions(
+      index: 3,
+      name: "51 - 60 Jahre",
+    ),
+    RadioButtonOptions(
+      index: 4,
+      name: "61 - 70 Jahre",
+    ),
+    RadioButtonOptions(
+      index: 5,
+      name: "71 - 80 Jahre",
+    ),
+    RadioButtonOptions(
+      index: 6,
+      name: "über 81 Jahre",
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +49,14 @@ class _QuestionAgeState extends State<QuestionAge> {
           child: TitleContentButtonWidget(
             fbKey: new GlobalKey(),
             title: 'Wie alt bist du?',
-            mainContent: RadioGroup(),
+            mainContent: RadioButtonGroup(
+                optionsList: answers,
+                selectedValue: selectedValue,
+                onChanged: (int selectionValue) {
+                  setState(() {
+                    selectedValue = selectionValue;
+                });
+              }),
             buttonText: 'WEITER',
           ),
         ));

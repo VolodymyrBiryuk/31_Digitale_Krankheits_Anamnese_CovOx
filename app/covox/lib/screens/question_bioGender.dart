@@ -2,23 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:covox/widgets/title_content_button_widget.dart';
 import 'package:covox/widgets/radio_button_widget.dart';
 
-class QuestionDiabetes extends StatefulWidget {
-  QuestionDiabetes({Key key}) : super(key: key);
+class QuestionBioGender extends StatefulWidget {
+  QuestionBioGender({Key key}) : super(key: key);
 
   @override
-  _QuestionDiabetes createState() => _QuestionDiabetes();
+  _QuestionBioGender createState() => _QuestionBioGender();
 }
 
-class _QuestionDiabetes extends State<QuestionDiabetes> {
+class _QuestionBioGender extends State<QuestionBioGender> {
   int selectedValue;
   List<RadioButtonOptions> answers = [
     RadioButtonOptions(
       index: 1,
-      name: "Ja",
+      name: "Weiblich",
     ),
     RadioButtonOptions(
       index: 2,
-      name: "Nein",
+      name: "Männlich",
     ),
   ];
   @override
@@ -32,7 +32,7 @@ class _QuestionDiabetes extends State<QuestionDiabetes> {
         body: Center(
           child: TitleContentButtonWidget(
             fbKey: new GlobalKey(),
-            title: 'Hast du Diabetes?',
+            title: 'Welches biologische Geschlecht hast du?',
             mainContent: RadioButtonGroup(
                 optionsList: answers,
                 selectedValue: selectedValue,
@@ -46,4 +46,3 @@ class _QuestionDiabetes extends State<QuestionDiabetes> {
         ));
   }
 }
-
