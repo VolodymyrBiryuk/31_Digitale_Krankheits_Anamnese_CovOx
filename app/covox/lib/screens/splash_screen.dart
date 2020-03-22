@@ -4,27 +4,28 @@ import 'package:covox/widgets/title_content_button_widget.dart';
 import 'package:covox/widgets/navigation_bar.dart';
 
 /// The Greeting Page, where the user is informaed about the purpose of the App.
-class SplashPage extends StatefulWidget {
-  SplashPage({Key key}) : super(key: key);
+class SplashScreen extends StatefulWidget {
+  SplashScreen({Key key}) : super(key: key);
 
   @override
-  _SplashPageState createState() => _SplashPageState();
+  _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _SplashPageState extends State<SplashPage> {
+class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: NavigationBarWidget(
-        context: null,
-      ),
-      body: Center(
-        child: FittedBox(
-          child: Image.asset('assets/images/0_0_Logo.png'),
-          fit: BoxFit.scaleDown,
+        // appBar: NavigationBarWidget(),
+        appBar: NavigationBarWidget(
+          context: null,
         ),
-      ),
-    );
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: ExactAssetImage('assets/images/splash.png'),
+                fit: BoxFit.cover),
+          ),
+        ));
   }
 
   void losGehts() {
