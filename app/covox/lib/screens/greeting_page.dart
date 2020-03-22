@@ -29,6 +29,7 @@ class _GreetingPageState extends State<GreetingPage> {
           mainContent: Text(
               'Hallo liebe Nutzer:in! Bevor es mit dem Messen los geht, brauchen wir noch ein paar Angaben von dir. Alle deine Daten werden auf deinem Handy gespeichert und nur mit deinem Einverständnis weitergegeben.'),
           buttonText: 'WEITER',
-        ));
+        )
+      );
   }
 }
