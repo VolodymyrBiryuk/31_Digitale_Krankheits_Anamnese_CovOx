@@ -12,23 +12,6 @@ class GreetingPage extends StatefulWidget {
 }
 
 class _GreetingPageState extends State<GreetingPage> {
-  // static const _text_md = '''
-  // ### Hallo liebe Nutzer:in!
-
-  // ### Bevor du mit dem Messen starten kannst,
-
-  // ### brauchen wir noch ein paar Angaben von dir.
-
-  // ### Alle deine Daten werden auf deinem Handy gespeichert und
-
-  // ### nur im Notfall mit deinem Einverständnis verschlüsselt
-
-  // ### an Fachpersonal weitergegeben.
-
-  // ### Wenn du soweit bist drücke
-
-  // ### LOS GEHT’S
-  // ''';
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +25,6 @@ class _GreetingPageState extends State<GreetingPage> {
           title: 'VORAB',
           // mainContent: MarkdownBody(data: _text_md, ),
           mainContent: Container(
-            width: 300.0,
             child: RichText(
               textAlign: TextAlign.center,
               text: TextSpan(
