@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 class NavigationFlatButtonWidget extends StatelessWidget {
   final GlobalKey fbKey;
   final String text;
+  final VoidCallback onPressedAction;
 
   NavigationFlatButtonWidget({
     Key key,
     @required this.fbKey,
     this.text,
+    this.onPressedAction,
   }) : super(key: key);
 
   @override
@@ -16,7 +18,7 @@ class NavigationFlatButtonWidget extends StatelessWidget {
     return FlatButton(
       textColor: Theme.of(context).primaryColor,
       child: Text(text),
-      onPressed: () => print(text),
+      onPressed: onPressedAction,
     );
   }
 }

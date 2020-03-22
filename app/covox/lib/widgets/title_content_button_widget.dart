@@ -7,12 +7,14 @@ class TitleContentButtonWidget extends StatelessWidget {
   final String title;
   final String buttonText;
   final Widget mainContent;
+  final VoidCallback buttonAction;
 
   TitleContentButtonWidget({
     Key key,
     @required this.fbKey,
     this.title,
     this.buttonText,
+    this.buttonAction,
     this.mainContent,
   }) : super(key: key);
 
@@ -20,30 +22,38 @@ class TitleContentButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        child: ListView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              child: RichText(
-                textAlign: TextAlign.center,
-                text: TextSpan(
-                  style:
-                      Theme.of(context).textTheme.body1.copyWith(fontSize: 30),
-                  children: <TextSpan>[
-                    TextSpan(
-                      text: 'VORAB',
-                      style: TextStyle(color: Theme.of(context).primaryColor),
+                height: 100.0,
+                child: Align(
+                  alignment: Alignment.topCenter,
+                  child: RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                      style: Theme.of(context)
+                          .textTheme
+                          .body1
+                          .copyWith(fontSize: 30),
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: title,
+                          style:
+                              TextStyle(color: Theme.of(context).primaryColor),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ),
-            ),
-            Container(
+                  ),
+                )),
+            Center(
               child: mainContent,
             ),
             Container(
                 child: ActionRaisedButtonWidget(
               fbKey: GlobalKey(),
-              text: 'Los Geht\'s',
+              text: buttonText,
+              onPressAction: buttonAction,
             )),
           ],
         ),

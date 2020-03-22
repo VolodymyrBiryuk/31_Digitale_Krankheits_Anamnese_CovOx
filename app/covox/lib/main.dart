@@ -3,7 +3,8 @@ import 'package:covox/screens/greeting_page.dart';
 import 'package:flutter/material.dart';
 import 'package:covox/screens/home_page.dart';
 import 'package:covox/screens/basic_questions_page.dart';
-import 'package:covox/screens/question_page_basic.dart';
+import 'package:covox/screens/question_diabetes.dart';
+// import 'package:covox/screens/question_page_basic.dart';
 
 void main() => runApp(MyApp());
 

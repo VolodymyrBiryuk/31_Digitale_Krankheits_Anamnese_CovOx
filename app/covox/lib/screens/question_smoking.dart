@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:covox/widgets/title_content_button_widget.dart';
 import 'package:covox/widgets/radio_button_widget.dart';
+import 'package:covox/widgets/navigation_bar.dart';
 
 class QuestionSmoking extends StatefulWidget {
   QuestionSmoking({Key key}) : super(key: key);
@@ -14,10 +15,8 @@ class _QuestionSmokingState extends State<QuestionSmoking> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          // Here we take the value from the MyHomePage object that was created by
-          // the App.build method, and use it to set our appbar title.
-          title: Text('Basic Questions'),
+        appBar:NavigationBarWidget(
+          context: context,
         ),
         body: Center(
           child: TitleContentButtonWidget(
