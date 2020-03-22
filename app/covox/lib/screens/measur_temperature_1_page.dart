@@ -1,4 +1,3 @@
-import 'package:covox/screens/question_gender.dart';
 import 'package:flutter/material.dart';
 import 'package:covox/widgets/title_content_button_widget.dart';
 import 'package:covox/widgets/navigation_bar.dart';
@@ -40,27 +39,27 @@ class _MeasureTemperaturePage1State extends State<MeasureTemperaturePage1> {
                             .copyWith(fontSize: 20),
                         children: <TextSpan>[
                           TextSpan(
-                            text: 'Suche dir einen Platz an!\n',
+                            text: 'Drücke auf Start. Halte\n',
                             style: TextStyle(
                                 color: Theme.of(context).primaryColor),
                           ),
                           TextSpan(
-                            text: 'den du sitzen kannst\n',
+                            text: 'dir die Rückseite vom\n',
                             style: TextStyle(
                                 color: Theme.of(context).primaryColor),
                           ),
                           TextSpan(
-                            text: 'zwischendurch auch nach\n',
+                            text: 'Handy mit dem roten\n',
                             style: TextStyle(
                                 color: Theme.of(context).primaryColor),
                           ),
                           TextSpan(
-                            text: 'hinten lehnen kannst.\n',
+                            text: 'Licht auf die Stirn. Warte\n',
                             style: TextStyle(
                                 color: Theme.of(context).primaryColor),
                           ),
                           TextSpan(
-                            text: 'Dann drücke Weiter.\n',
+                            text: 'bis der Ton erklingt.\n',
                             style: TextStyle(
                                 color: Theme.of(context).primaryColor),
                           ),

@@ -1,5 +1,4 @@
 import 'package:covox/screens/measur_temperature_1_page.dart';
-import 'package:covox/screens/question_gender.dart';
 import 'package:flutter/material.dart';
 import 'package:covox/widgets/title_content_button_widget.dart';
 import 'package:covox/widgets/navigation_bar.dart';
@@ -51,7 +50,7 @@ class _MeasureTemperaturePage0State extends State<MeasureTemperaturePage0> {
                                 color: Theme.of(context).primaryColor),
                           ),
                           TextSpan(
-                            text: 'deinem Handy aus\n',
+                            text: 'deinem Handy aus.\n',
                             style: TextStyle(
                                 color: Theme.of(context).primaryColor),
                           ),
