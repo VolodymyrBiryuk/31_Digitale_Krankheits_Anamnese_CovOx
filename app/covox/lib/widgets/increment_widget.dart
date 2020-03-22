@@ -20,7 +20,6 @@ class _IncrementFieldState extends State<IncrementField> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     _n = widget.initValue;

@@ -8,10 +8,10 @@ class QuestionGender extends StatefulWidget {
   QuestionGender({Key key}) : super(key: key);
 
   @override
-  _QuestionBioGenderState createState() => _QuestionBioGenderState();
+  _QuestionGenderState createState() => _QuestionGenderState();
 }
 
-class _QuestionBioGenderState extends State<QuestionGender> {
+class _QuestionGenderState extends State<QuestionGender> {
   int selectedValue;
   List<RadioButtonOptions> answers = [
     RadioButtonOptions(

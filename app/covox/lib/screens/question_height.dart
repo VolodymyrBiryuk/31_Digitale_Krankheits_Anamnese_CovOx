@@ -1,5 +1,7 @@
+import 'package:covox/screens/question_weight.dart';
 import 'package:flutter/material.dart';
 import 'package:covox/widgets/title_content_button_widget.dart';
+import 'package:covox/widgets/navigation_bar.dart';
 import 'package:covox/widgets/increment_widget.dart';
 
 class QuestionHeight extends StatefulWidget {
@@ -13,10 +15,8 @@ class _QuestionHeightState extends State<QuestionHeight> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          // Here we take the value from the MyHomePage object that was created by
-          // the App.build method, and use it to set our appbar title.
-          title: Text('Basic Questions'),
+        appBar: NavigationBarWidget(
+          context: context,
         ),
         body: Center(
           child:  TitleContentButtonWidget(
@@ -27,7 +27,13 @@ class _QuestionHeightState extends State<QuestionHeight> {
                 unit: 'cm',
                 ),
             buttonText: 'WEITER',
+            buttonAction: next,
           ),
         ));
+  }
+  void next() {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (BuildContext context) => QuestionWeight(),
+    ));
   }
 }

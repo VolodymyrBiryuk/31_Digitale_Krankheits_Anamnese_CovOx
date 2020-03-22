@@ -1,3 +1,4 @@
+import 'package:covox/screens/question_vorerkrankungen.dart';
 import 'package:flutter/material.dart';
 import 'package:covox/widgets/title_content_button_widget.dart';
 import 'package:covox/widgets/radio_button_widget.dart';
@@ -41,8 +42,14 @@ class _QuestionDiabetes extends State<QuestionDiabetes> {
                 });
               }),
             buttonText: 'WEITER',
+            buttonAction: next,
           ),
         ));
+  }
+  void next() {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (BuildContext context) => QuestionVorerkrankungen(),
+    ));
   }
 }
 
