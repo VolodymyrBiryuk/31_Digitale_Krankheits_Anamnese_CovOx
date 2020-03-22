@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:covox/widgets/drop_down_widget.dart';
 
-class QuestionsPageBasic extends StatefulWidget {
-  QuestionsPageBasic({Key key}) : super(key: key);
+class QuestionsPageAllergies extends StatefulWidget {
+  QuestionsPageAllergies({Key key}) : super(key: key);
 
   @override
-  _QuestionsPageBasicState createState() => _QuestionsPageBasicState();
+  _QuestionsPageAllergiesState createState() => _QuestionsPageAllergiesState();
 }
 
-class _QuestionsPageBasicState extends State<QuestionsPageBasic> {
+class _QuestionsPageAllergiesState extends State<QuestionsPageAllergies> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,11 +51,10 @@ class _QuestionsPageBasicState extends State<QuestionsPageBasic> {
                 labelText: 'raucher',
                 itemsList: ['oft', 'gelegentlich', 'nie'],
               ),
-              RaisedButton(
-                  child: Text("Press Me"),
-                  onPressed: null,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(30.0)))
+              const RaisedButton(
+                onPressed: null,
+                child: Text('Next', style: TextStyle(fontSize: 20)),
+              ),
             ],
           ),
         ));
