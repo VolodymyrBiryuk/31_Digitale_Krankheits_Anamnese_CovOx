@@ -47,7 +47,10 @@ class TitleContentButtonWidget extends StatelessWidget {
                   ),
                 )),
             Center(
-              child: mainContent,
+              child: Container(
+               height: 300.0,
+               child: mainContent, 
+              ),
             ),
             Container(
                 child: ActionRaisedButtonWidget(

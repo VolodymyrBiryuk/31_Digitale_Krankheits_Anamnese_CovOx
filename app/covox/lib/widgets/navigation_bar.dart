@@ -1,57 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:covox/widgets/navigation_flat_button_widget.dart';
 import 'package:covox/screens/greeting_page.dart';
 
 class NavigationBarWidget extends AppBar {
   NavigationBarWidget({Key key, Widget title, BuildContext context})
       : super(
             key: key,
-            title: title,
+            titleSpacing: 0.0,
+            title: context != null
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      SizedBox(
+                          height: 20, // Your Height
+                          width: 150, // Your width
+                          child: FlatButton.icon(
+                            icon: Icon(Icons.arrow_back),
+                            textColor: Theme.of(context).primaryColor,
+                            // textColor: Colors.cyan,
+                            label: Text('zurück'),
+                            onPressed: () => Navigator.of(context).pop(),
+                          ))
+                      // Your widgets here
+                    ],
+                  )
+                : null,
             backgroundColor: Colors.transparent,
             bottomOpacity: 0.0,
             elevation: 0.0,
-            // leading: new FlatButton(onPressed: () => Navigator.of(context).pop(), child: Text('zurueck')),
-            leading: context != null
-                ? new NavigationFlatButtonWidget(
-                    fbKey: GlobalKey(),
-                    text: 'zurück',
-                    onPressedAction: () => Navigator.of(context).pop(),
-                  )
-                : new NavigationFlatButtonWidget(
-                    fbKey: GlobalKey(),
-                    text: '',
-                    onPressedAction: null,
-                  ),
-            actions: context != null ? <Widget>[
-              new NavigationFlatButtonWidget(
-                  fbKey: GlobalKey(),
-                  text: 'abbrechen',
-                  onPressedAction: () =>
-                      Navigator.of(context).push(MaterialPageRoute(
+            automaticallyImplyLeading: false,
+            actions: context != null
+                ? <Widget>[
+                    FlatButton(
+                      textColor: Theme.of(context).primaryColor,
+                      child: Text('abbrechen'),
+                      onPressed: () =>
+                          Navigator.of(context).push(MaterialPageRoute(
                         builder: (BuildContext context) => GreetingPage(),
-                      )))
-            ] : <Widget>[]);
+                      )),
+                    )
+                  ]
+                : <Widget>[]);
 }
-/* import 'package:flutter/material.dart';
-
-class NavigationBarWidget extends StatelessWidget implements PreferredSizeWidget {
-  final String title;
-
-  NavigationBarWidget({
-    Key key,
-    this.title,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      leading: FlatButton(onPressed: null, child: Text('<- zurück')),
-      title: Text(''),
-      actions: <Widget>[FlatButton(onPressed: null, child: Text('abbrechen'))],
-    );
-  }
-
-  @override
-  // TODO: implement preferredSize
-  Size get preferredSize => Size.fromHeight(60.0);
-} */
