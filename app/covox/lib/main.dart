@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.white,
         fontFamily: 'Monserrat',
         textTheme: TextTheme(
+          body1: TextStyle(fontSize: 25.0, color: Colors.cyan),
             headline: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
             title: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic)),
         buttonTheme: ButtonThemeData(
