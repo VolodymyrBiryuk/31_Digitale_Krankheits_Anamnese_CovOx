@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:covox/widgets/action_raised_button.dart';
 
 /// A reusable template widget that takes a title, main content as Widget and button text to build a page view.
 class TitleContentButtonWidget extends StatelessWidget {
@@ -21,17 +22,29 @@ class TitleContentButtonWidget extends StatelessWidget {
       child: Container(
         child: ListView(
           children: <Widget>[
-            Text(title),
+            Container(
+              child: RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                  style:
+                      Theme.of(context).textTheme.body1.copyWith(fontSize: 30),
+                  children: <TextSpan>[
+                    TextSpan(
+                      text: 'VORAB',
+                      style: TextStyle(color: Theme.of(context).primaryColor),
+                    ),
+                  ],
+                ),
+              ),
+            ),
             Container(
               child: mainContent,
             ),
             Container(
-              child: RaisedButton(
-                  child: Text(buttonText),
-                  onPressed: null,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(30.0))),
-            ),
+                child: ActionRaisedButtonWidget(
+              fbKey: GlobalKey(),
+              text: 'Los Geht\'s',
+            )),
           ],
         ),
       ),

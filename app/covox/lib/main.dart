@@ -15,14 +15,24 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: _title,
       theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          color: Colors.white,
+        ),
         brightness: Brightness.light,
-        primaryColor: Colors.cyan[800],
-        accentColor: Colors.cyan[600],
+        accentColor: Colors.white,
         fontFamily: 'Monserrat',
         textTheme: TextTheme(
             headline: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
             title: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic)),
-        primarySwatch: Colors.blue,
+        buttonTheme: ButtonThemeData(
+          buttonColor: Colors.cyan,
+          textTheme: ButtonTextTheme.accent,
+          minWidth: 100.0,
+          height: 50.0,
+          colorScheme:
+              Theme.of(context).colorScheme.copyWith(secondary: Colors.white),
+        ),
+        primarySwatch: Colors.cyan,
       ),
       home: GreetingPage(),
     );
