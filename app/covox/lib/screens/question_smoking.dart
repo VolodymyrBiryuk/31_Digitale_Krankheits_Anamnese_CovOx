@@ -32,7 +32,7 @@ class _QuestionSmokingState extends State<QuestionSmoking> {
         body: Center(
           child: TitleContentButtonWidget(
             fbKey: new GlobalKey(),
-            title: 'Rauchst du täglich?',
+            title: 'Rauchst du?',
             mainContent: RadioButtonGroup(
                 optionsList: answers,
                 selectedValue: selectedValue,

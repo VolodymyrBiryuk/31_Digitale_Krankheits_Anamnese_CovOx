@@ -1,3 +1,4 @@
+import 'package:covox/screens/question_smoking.dart';
 import 'package:flutter/material.dart';
 import 'package:covox/widgets/title_content_button_widget.dart';
 import 'package:covox/widgets/increment_widget.dart';
@@ -27,7 +28,13 @@ class _QuestionWeightState extends State<QuestionWeight> {
                 unit: 'kg',
                 ),
             buttonText: 'WEITER',
+            buttonAction: next,
           ),
         ));
+  }
+  void next() {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (BuildContext context) => QuestionSmoking(),
+    ));
   }
 }

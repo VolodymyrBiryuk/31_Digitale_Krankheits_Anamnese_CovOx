@@ -36,24 +36,32 @@ class RadioButtonGroupState extends State<RadioButtonGroup> {
   Widget build(BuildContext context) {
 
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: 
-                widget.optionsList.map((data) => RadioListTile(
-                  title: Text("${data.name}", style: TextStyle(fontSize: 25)),
-                  groupValue: selectedValue,
-                  value: data.index,
-                  onChanged: (val) {
-                    setState(() {
-                      radioItem = data.name ;
-                      selectedValue = data.index;
-                    });
-                  },
-                )).toList(),
-                ),          
-        ],
-    );
+              children: <Widget>[
+                Padding(padding: const EdgeInsets.only(
+                  left: 40,
+                  top: 0,
+                  right: 40,
+                  bottom: 40,
+                ),
+                child: Column(
+                  children: 
+                    widget.optionsList.map((data) => RadioListTile(
+                      title: Text("${data.name}", style: TextStyle(fontSize: 25)),
+                      activeColor: Colors.green,
+                      groupValue: selectedValue,
+                      value: data.index,
+                      onChanged: (val) {
+                        setState(() {
+                          selectedValue = data.index;
+                        });
+                      },
+                    )).toList(),
+                    ),     
+                )     
+          ],
+    ),
+    ]);
   }
 }
