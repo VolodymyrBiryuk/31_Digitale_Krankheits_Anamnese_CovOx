@@ -44,10 +44,10 @@ void minus() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-              new FloatingActionButton(
+              new RaisedButton(
                 onPressed: add,
-                child: new Icon(Icons.add, color: Colors.black,),
-                backgroundColor: Colors.white,),
+                child: new Icon(Icons.keyboard_arrow_up, size: 50,),
+              ),
                 
               Padding(padding: const EdgeInsets.all(10.0),),   
 
@@ -56,13 +56,10 @@ void minus() {
 
               Padding(padding: const EdgeInsets.all(10.0),), 
 
-              new FloatingActionButton(
+              new RaisedButton(
                 onPressed: minus,
-                child: new Icon(
-                const IconData(0xe15b, fontFamily: 'MaterialIcons'),
-                color: Colors.black),
-                backgroundColor: Colors.white,),  
-
+                child: new Icon(Icons.keyboard_arrow_down, size: 50,),
+              ),
               Padding(padding: const EdgeInsets.all(40.0),)   
         ],
     );
