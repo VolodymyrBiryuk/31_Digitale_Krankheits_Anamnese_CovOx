@@ -2,6 +2,7 @@ import 'package:covox/screens/measur_heartFreq_1.dart';
 import 'package:flutter/material.dart';
 import 'package:covox/widgets/title_content_button_widget.dart';
 import 'package:covox/widgets/navigation_bar.dart';
+import 'package:covox/util/enter_exit_route.dart';
 
 /// The Greeting Page, where the user is informaed about the purpose of the App.
 class MeasureHeartFreq0 extends StatefulWidget {
@@ -118,8 +119,6 @@ class _MeasureHeartFreq0State extends State<MeasureHeartFreq0> {
   }
 
   void losGehts() {
-    Navigator.of(context).push(MaterialPageRoute(
-      builder: (BuildContext context) => MeasureHeartFreq1(),
-    ));
+    Navigator.push(context, EnterExitRoute(exitPage: MeasureHeartFreq1(), enterPage: MeasureHeartFreq1()));
   }
 }
