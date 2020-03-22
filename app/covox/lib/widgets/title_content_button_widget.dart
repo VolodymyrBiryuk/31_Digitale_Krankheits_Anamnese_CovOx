@@ -49,8 +49,8 @@ class TitleContentButtonWidget extends StatelessWidget {
                 )),
             Center(
               child: Container(
-               height: 300.0,
-               width: 300.0,
+               height: 400.0,
+               width: 400.0,
                child: mainContent, 
               ),
             ),
