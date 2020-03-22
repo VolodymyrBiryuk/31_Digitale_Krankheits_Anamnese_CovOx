@@ -1,9 +1,9 @@
+import 'package:covox/screens/measur_heartFreq_0.dart';
 import 'package:covox/screens/question_gender.dart';
 import 'package:flutter/material.dart';
 import 'package:covox/widgets/title_content_button_widget.dart';
 import 'package:covox/widgets/navigation_bar.dart';
 
-import 'greeting_page.dart';
 
 /// The Greeting Page, where the user is informaed about the purpose of the App.
 class BlutdruckPage extends StatefulWidget {
@@ -111,7 +111,7 @@ class _BlutdruckPageState extends State<BlutdruckPage> {
 
   void losGehts() {
     Navigator.of(context).push(MaterialPageRoute(
-      builder: (BuildContext context) => GreetingPage(),
+      builder: (BuildContext context) => MeasureHeartFreq0(),
     ));
   }
 }
