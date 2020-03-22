@@ -27,6 +27,7 @@ class TitleContentButtonWidget extends StatelessWidget {
           children: <Widget>[
             Container(
                 height: 100.0,
+                width: 300.0,
                 child: Align(
                   alignment: Alignment.topCenter,
                   child: RichText(
@@ -49,6 +50,7 @@ class TitleContentButtonWidget extends StatelessWidget {
             Center(
               child: Container(
                height: 300.0,
+               width: 300.0,
                child: mainContent, 
               ),
             ),
