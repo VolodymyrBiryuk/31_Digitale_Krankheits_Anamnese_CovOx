@@ -3,19 +3,20 @@ import 'package:covox/widgets/title_content_button_widget.dart';
 import 'package:covox/widgets/radio_button_widget.dart';
 import 'package:covox/widgets/navigation_bar.dart';
 
-class QuestionGender extends StatefulWidget {
-  QuestionGender({Key key}) : super(key: key);
+class QuestionVorerkrankungen extends StatefulWidget {
+  QuestionVorerkrankungen({Key key}) : super(key: key);
 
   @override
-  _QuestionBioGenderState createState() => _QuestionBioGenderState();
+  _QuestionVorerkrankungenState createState() => _QuestionVorerkrankungenState();
 }
 
-class _QuestionBioGenderState extends State<QuestionGender> {
+class _QuestionVorerkrankungenState extends State<QuestionVorerkrankungen> {
   int selectedValue;
   List<RadioButtonOptions> answers = [
     RadioButtonOptions(
       index: 1,
-      name: "Lunge",
+      name: "Lunge"
+            "(z.B. COPD, Asthma, etc.)",
     ),
     RadioButtonOptions(
       index: 2,

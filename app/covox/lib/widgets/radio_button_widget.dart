@@ -27,7 +27,6 @@ class RadioButtonGroupState extends State<RadioButtonGroup> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     selectedValue = -1;
