@@ -3,16 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:covox/widgets/title_content_button_widget.dart';
 import 'package:covox/widgets/navigation_bar.dart';
 
-import 'measur_temperature_2_page.dart';
+import 'measure_atemfrequenz1.dart';
+
 /// The Greeting Page, where the user is informaed about the purpose of the App.
-class MeasureTemperaturePage1 extends StatefulWidget {
-  MeasureTemperaturePage1({Key key}) : super(key: key);
+class AtemfrequenzPage extends StatefulWidget {
+  AtemfrequenzPage({Key key}) : super(key: key);
 
   @override
-  _MeasureTemperaturePage1State createState() => _MeasureTemperaturePage1State();
+  _AtemfrequenzPageState createState() => _AtemfrequenzPageState();
 }
 
-class _MeasureTemperaturePage1State extends State<MeasureTemperaturePage1> {
+class _AtemfrequenzPageState extends State<AtemfrequenzPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +23,7 @@ class _MeasureTemperaturePage1State extends State<MeasureTemperaturePage1> {
         ),
         body: TitleContentButtonWidget(
           fbKey: new GlobalKey(),
-          title: 'Nimm Platz',
+          title: '2. Atemfrequenz',
           // mainContent: MarkdownBody(data: _text_md, ),
           mainContent: Row(
             children: <Widget>[
@@ -30,7 +31,7 @@ class _MeasureTemperaturePage1State extends State<MeasureTemperaturePage1> {
                 flex: 9,
                 child: Column(
                   children: <Widget>[
-                    Image.asset('assets/images/1_2_Temperatur_Figur_mit_Infrarot.png'),
+                    Image.asset('assets/images/1_4_Atemfrequenz.png'),
                     SizedBox(height: 50),
                     RichText(
                       textAlign: TextAlign.center,
@@ -41,27 +42,17 @@ class _MeasureTemperaturePage1State extends State<MeasureTemperaturePage1> {
                             .copyWith(fontSize: 20),
                         children: <TextSpan>[
                           TextSpan(
-                            text: 'Suche dir einen Platz an!\n',
+                            text: 'Lehne dich soweit nach\n',
                             style: TextStyle(
                                 color: Theme.of(context).primaryColor),
                           ),
                           TextSpan(
-                            text: 'den du sitzen kannst\n',
+                            text: 'hinten, wie du kannst.\n',
                             style: TextStyle(
                                 color: Theme.of(context).primaryColor),
                           ),
                           TextSpan(
-                            text: 'zwischendurch auch nach\n',
-                            style: TextStyle(
-                                color: Theme.of(context).primaryColor),
-                          ),
-                          TextSpan(
-                            text: 'hinten lehnen kannst.\n',
-                            style: TextStyle(
-                                color: Theme.of(context).primaryColor),
-                          ),
-                          TextSpan(
-                            text: 'Dann drücke Weiter.\n',
+                            text: 'Drücke dann auf START\n',
                             style: TextStyle(
                                 color: Theme.of(context).primaryColor),
                           ),
@@ -78,13 +69,13 @@ class _MeasureTemperaturePage1State extends State<MeasureTemperaturePage1> {
                       Icon(
                         Icons.check_circle,
                         size: 30,
-                        color: Theme.of(context).primaryColorLight,
+                        color: Theme.of(context).primaryColor,
                       ),
                       SizedBox(height: 20),
                       Icon(
-                        Icons.radio_button_unchecked,
+                        Icons.check_circle,
                         size: 30,
-                        color: Theme.of(context).primaryColor,
+                        color: Theme.of(context).primaryColorLight,
                       ),
                       SizedBox(height: 20),
                       Icon(
@@ -115,7 +106,7 @@ class _MeasureTemperaturePage1State extends State<MeasureTemperaturePage1> {
 
   void losGehts() {
     Navigator.of(context).push(MaterialPageRoute(
-      builder: (BuildContext context) => MeasureTemperaturePage2(),
+      builder: (BuildContext context) => AtemfrequenzPage1(),
     ));
   }
 }
