@@ -20,49 +20,34 @@ class TitleContentButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(
-                height: 100.0,
-                width: 300.0,
-                child: Align(
-                  alignment: Alignment.topCenter,
-                  child: RichText(
-                    textAlign: TextAlign.center,
-                    text: TextSpan(
-                      style: Theme.of(context)
-                          .textTheme
-                          .body1
-                          .copyWith(fontSize: 30),
-                      children: <TextSpan>[
-                        TextSpan(
-                          text: title,
-                          style:
-                              TextStyle(color: Theme.of(context).primaryColor),
-                        ),
-                      ],
-                    ),
-                  ),
-                )),
-            Center(
-              child: Container(
-               height: 400.0,
-               width: 400.0,
-               child: mainContent, 
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: <Widget>[
+        Expanded(
+            flex: 2,
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                  text: title,
+                  style: Theme.of(context).textTheme.headline,
+                ),
               ),
-            ),
-            Container(
-                child: ActionRaisedButtonWidget(
+            )),
+        Expanded(
+          flex: 6,
+          child: mainContent,
+        ),
+        Expanded(
+            // widthFactor: 0.61,
+            flex: 1,
+            child: ActionRaisedButtonWidget(
               fbKey: GlobalKey(),
               text: buttonText,
               onPressAction: buttonAction,
             )),
-          ],
-        ),
-      ),
+      ],
     );
   }
 }
