@@ -6,28 +6,21 @@ class ActionRaisedButtonWidget extends StatelessWidget {
   final String text;
   final VoidCallback onPressAction;
 
-  ActionRaisedButtonWidget({
-    Key key,
-    @required this.fbKey,
-    this.text,
-    this.onPressAction
-  }) : super(key: key);
+  ActionRaisedButtonWidget(
+      {Key key, @required this.fbKey, this.text, this.onPressAction})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 60.0,
-      width: 200.0,
-      child: RaisedButton(
-          color: Theme.of(context).primaryColor,
-          textColor: Theme.of(context).accentColor,
-          child: Text(text,
-          style: TextStyle(
-            fontSize: 20.0
-          ),),
-          onPressed: () => onPressAction(),
-          shape: RoundedRectangleBorder(
-              borderRadius: new BorderRadius.circular(30.0))),
-    );
+    return RaisedButton(
+        color: Theme.of(context).primaryColor,
+        textColor: Theme.of(context).accentColor,
+        child: Text(
+          text,
+          style: TextStyle(fontSize: 20.0),
+        ),
+        onPressed: () => onPressAction(),
+        shape: RoundedRectangleBorder(
+            borderRadius: new BorderRadius.circular(30.0)));
   }
 }
