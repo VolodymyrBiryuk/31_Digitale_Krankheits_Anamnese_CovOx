@@ -8,7 +8,7 @@ class TitleContentButtonWidget extends StatelessWidget {
   final String title;
   final String buttonText;
   final Widget mainContent;
-  final ProgressIndicatorWidget progressIndicator;
+  final List<String> progress;
   final VoidCallback buttonAction;
 
   TitleContentButtonWidget({
@@ -16,7 +16,7 @@ class TitleContentButtonWidget extends StatelessWidget {
     @required this.fbKey,
     this.title,
     this.buttonText,
-    this.progressIndicator,
+    this.progress = const [],
     this.buttonAction,
     this.mainContent,
   }) : super(key: key);
@@ -46,7 +46,8 @@ class TitleContentButtonWidget extends StatelessWidget {
                 children: <Widget>[
                   Align(
                     alignment: Alignment.centerRight,
-                    child: progressIndicator,
+                    child: ProgressIndicatorWidget(
+                        fbKey: GlobalKey(), progress: progress),
                   ),
                   Align(
                     alignment: Alignment.center,
