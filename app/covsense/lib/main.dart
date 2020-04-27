@@ -1,51 +1,73 @@
-import 'package:covox/screens/greeting_page.dart';
-import 'package:covox/screens/splash_screen.dart';
-import 'package:covox/screens/take_a_seat_page.dart';
-import 'package:covox/screens/test_page.dart';
+import 'package:covox/screens/home/homepage.dart';
+import 'package:covox/screens/splash_screen/index.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class MyApp extends StatelessWidget {
-  static const String _title = 'Flutter Code Sample';
-  static const Color primaryColor = Color.fromARGB(255, 50, 157, 156);
+import 'authentication/index.dart';
+import 'authentication/user_repository.dart';
+import 'login/loading_indicator.dart';
+import 'login/login.dart';
+
+class SimpleBlocDelegate extends BlocDelegate {
+  @override
+  void onEvent(Bloc bloc, Object event) {
+    print(event);
+    super.onEvent(bloc, event);
+  }
+
+  @override
+  void onTransition(Bloc bloc, Transition transition) {
+    print(transition);
+    super.onTransition(bloc, transition);
+  }
+
+  @override
+  void onError(Bloc bloc, Object error, StackTrace stackTrace) {
+    print(error);
+    super.onError(bloc, error, stackTrace);
+  }
+}
+
+void main() {
+  BlocSupervisor.delegate = SimpleBlocDelegate();
+  final userRepository = UserRepository();
+  runApp(
+    BlocProvider<AuthenticationBloc>(
+      create: (context) {
+        return AuthenticationBloc(userRepository: userRepository)
+          ..add(AppStarted());
+      },
+      child: App(userRepository: userRepository),
+    ),
+  );
+}
+
+class App extends StatelessWidget {
+  final UserRepository userRepository;
+
+  App({Key key, @required this.userRepository}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: _title,
-      theme: ThemeData(
-          appBarTheme: AppBarTheme(
-            color: Colors.white,
-          ),
-          brightness: Brightness.light,
-          accentColor: Colors.white,
-          fontFamily: 'Montserrat',
-          textTheme: TextTheme(
-              body1: TextStyle(
-                  fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.w500,
-                  fontSize: 16.0,
-                  color: primaryColor),
-              headline: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Montserrat',
-                  color: primaryColor),
-              title: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic)),
-          buttonTheme: ButtonThemeData(
-            buttonColor: primaryColor,
-            textTheme: ButtonTextTheme.accent,
-            minWidth: 100.0,
-            height: 50.0,
-            colorScheme:
-                Theme.of(context).colorScheme.copyWith(secondary: Colors.white),
-          ),
-          primaryColor: primaryColor
-          // primarySwatch: primaryColor,
-          ),
-      // home: SplashScreen(),
-      home: TestPage(),
+      home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
+        builder: (context, state) {
+          if (state is AuthenticationUninitialized) {
+            return SplashScreen();
+          }
+          if (state is AuthenticationAuthenticated) {
+            return HomePage();
+          }
+          if (state is AuthenticationUnauthenticated) {
+            return LoginPage(userRepository: userRepository);
+          }
+          if (state is AuthenticationLoading) {
+            return LoadingIndicator();
+          }
+        },
+      ),
     );
   }
 }
