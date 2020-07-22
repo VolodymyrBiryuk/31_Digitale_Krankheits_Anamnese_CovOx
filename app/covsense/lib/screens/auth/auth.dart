@@ -1,39 +1,35 @@
-import 'dart:async';
-
+import 'package:covox/blocs/auth/index.dart';
+import 'package:covox/blocs/auth/sign_in/sign_in_bloc.dart';
+import 'package:covox/blocs/auth/user_repository.dart';
 import 'package:covox/screens/auth/widgets/sign_in/index.dart';
 import 'package:flutter/material.dart';
 
-class Auth extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() => new AuthState();
-}
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-// Used for controlling whether the user is loggin or creating an account
-enum FormType { login, register }
-// TODO: Implement sign in/sign up form switching.
 
-class AuthState extends State<Auth> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+class Auth extends StatelessWidget {
+  final UserRepository userRepository;
+
+  Auth({Key key, @required this.userRepository})
+      : assert(userRepository != null),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
       resizeToAvoidBottomInset: false,
-      key: _scaffoldKey,
-      appBar: _buildBar(context),
-      body: new Container(
-        padding: EdgeInsets.all(16.0),
-        child: new Column(
-          children: <Widget>[SignIn()],
-        ),
+      appBar: AppBar(
+        title: Text('Login'),
       ),
-    );
-  }
-
-  Widget _buildBar(BuildContext context) {
-    return new AppBar(
-      title: new Text("Login"),
-      centerTitle: true,
+      body: BlocProvider(
+        create: (context) {
+          return SignInBloc(
+            authBloc: BlocProvider.of<AuthBloc>(context),
+            userRepository: userRepository,
+          );
+        },
+        child: SignInForm(),
+      ),
     );
   }
 }

@@ -1,8 +1,7 @@
 import 'package:covox/screens/measur_heartFreq_0.dart';
-import 'package:covox/screens/question_gender.dart';
-import 'package:flutter/material.dart';
-import 'package:covox/widgets/title_content_button_widget.dart';
 import 'package:covox/widgets/navigation_bar.dart';
+import 'package:covox/widgets/title_content_button_widget.dart';
+import 'package:flutter/material.dart';
 
 
 /// The Greeting Page, where the user is informaed about the purpose of the App.

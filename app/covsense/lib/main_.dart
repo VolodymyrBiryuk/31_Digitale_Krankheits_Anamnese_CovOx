@@ -1,4 +1,4 @@
-import 'package:covox/screens/auth/index.dart';
+/* import 'package:covox/screens/auth/index.dart';
 import 'package:covox/screens/greeting_page.dart';
 import 'package:flutter/material.dart';
 
@@ -55,3 +55,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+ */

@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:covox/screens/greeting_page.dart';
 
 class NavigationBarWidget extends AppBar {
-  NavigationBarWidget({Key key, Widget title, BuildContext context})
+  NavigationBarWidget(
+      {Key key,
+      Widget title,
+      BuildContext context,
+      VoidCallback onPressedLeading,
+      String labelLeading})
       : super(
             key: key,
             titleSpacing: 0.0,
@@ -18,8 +23,12 @@ class NavigationBarWidget extends AppBar {
                             icon: Icon(Icons.arrow_back),
                             textColor: Theme.of(context).primaryColor,
                             // textColor: Colors.cyan,
-                            label: Text('zurück'),
-                            onPressed: () => Navigator.of(context).pop(),
+                            label: labelLeading != null
+                                ? Text(labelLeading)
+                                : Text('zurück'),
+                            onPressed: () => onPressedLeading != null
+                                ? onPressedLeading()
+                                : Navigator.of(context).pop(),
                           ))
                       // Your widgets here
                     ],

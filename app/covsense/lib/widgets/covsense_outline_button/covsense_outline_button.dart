@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 
 /// A reusable template widget that takes a title, main content as Widget and button text to build a page view.
-class CovsenseRaisedButton extends StatelessWidget {
+class CovsenseOutlneButton extends StatelessWidget {
   final GlobalKey fbKey;
   final String text;
-  final VoidCallback onPressed;
+  final VoidCallback onPress;
 
-  CovsenseRaisedButton(
-      {Key key, @required this.fbKey, this.text, this.onPressed})
+  CovsenseOutlneButton(
+      {Key key, @required this.fbKey, this.text, this.onPress})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
-        color: Theme.of(context).primaryColor,
-        textColor: Theme.of(context).accentColor,
+    return OutlineButton(
+        color: Theme.of(context).accentColor,
+        textColor: Theme.of(context).primaryColor,
         child: Text(
           text,
           style: TextStyle(fontSize: 20.0),
         ),
-        onPressed: () => onPressed(),
+        onPressed: () => onPress(),
         shape: RoundedRectangleBorder(
             borderRadius: new BorderRadius.circular(30.0)));
   }

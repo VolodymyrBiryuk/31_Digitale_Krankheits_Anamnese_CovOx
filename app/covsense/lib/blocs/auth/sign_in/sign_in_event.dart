@@ -1,15 +1,15 @@
 import 'package:meta/meta.dart';
 import 'package:equatable/equatable.dart';
 
-abstract class LoginEvent extends Equatable {
-  const LoginEvent();
+abstract class SignInEvent extends Equatable {
+  const SignInEvent();
 }
 
-class LoginButtonPressed extends LoginEvent {
+class SignInButtonPressed extends SignInEvent {
   final String username;
   final String password;
 
-  const LoginButtonPressed({
+  const SignInButtonPressed({
     @required this.username,
     @required this.password,
   });
@@ -19,5 +19,5 @@ class LoginButtonPressed extends LoginEvent {
 
   @override
   String toString() =>
-      'LoginButtonPressed { username: $username, password: $password }';
+      'SignInButtonPressed { username: $username, password: $password }';
 }

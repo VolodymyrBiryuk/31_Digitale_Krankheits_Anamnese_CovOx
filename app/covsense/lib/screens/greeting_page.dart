@@ -1,7 +1,5 @@
 import 'package:covox/screens/question_gender.dart';
 import 'package:covox/util/enter_exit_route.dart';
-import 'package:covox/util/slide_left_routine.dart';
-import 'package:covox/util/slide_right_routine.dart';
 import 'package:flutter/material.dart';
 import 'package:covox/widgets/title_content_button_widget.dart';
 import 'package:covox/widgets/navigation_bar.dart';

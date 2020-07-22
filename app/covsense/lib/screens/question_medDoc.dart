@@ -1,10 +1,9 @@
-import 'package:covox/screens/question_smoking.dart';
 import 'package:covox/screens/take_a_seat_page.dart';
 import 'package:covox/util/enter_exit_route.dart';
 import 'package:covox/widgets/action_raised_button.dart';
 import 'package:covox/widgets/navigation_bar.dart';
-import 'package:flutter/material.dart';
 import 'package:covox/widgets/title_content_button_widget.dart';
+import 'package:flutter/material.dart';
 
 class QuestionMedDoc extends StatefulWidget {
   QuestionMedDoc({Key key}) : super(key: key);

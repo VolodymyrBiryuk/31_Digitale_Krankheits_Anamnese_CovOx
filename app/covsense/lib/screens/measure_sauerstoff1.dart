@@ -1,7 +1,6 @@
-import 'package:covox/screens/question_gender.dart';
-import 'package:flutter/material.dart';
-import 'package:covox/widgets/title_content_button_widget.dart';
 import 'package:covox/widgets/navigation_bar.dart';
+import 'package:covox/widgets/title_content_button_widget.dart';
+import 'package:flutter/material.dart';
 
 import 'measure_sauerstoff2.dart';
 

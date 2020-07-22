@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:io';
 
 import 'package:covox/widgets/covsense_raised_button/index.dart';
@@ -57,7 +56,7 @@ class SignUpState extends State<SignUp> {
               : CovsenseRaisedButton(
                   fbKey: GlobalKey(),
                   text: 'Sign In',
-                  onPressAction: () {
+                  onPressed: () {
                     if (_formKey.currentState.validate()) {
                       // Trigger sign in process if the entered information is valid.
                       signUpPressed();
@@ -75,7 +74,8 @@ class SignUpState extends State<SignUp> {
     setState(() {
       _isLoading = true;
     });
-
+    print(_username);
+    print(_password);
     sleep(const Duration(seconds: 3));
 
     setState(() {
